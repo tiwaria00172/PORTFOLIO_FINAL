@@ -1,0 +1,363 @@
+@import "tailwindcss";
+
+/* ===================================
+   CUSTOM DESIGN SYSTEM TOKENS
+   =================================== */
+@layer base {
+  :root {
+    /* Color palette – Cinematic Dark with Blue/Purple accent */
+    --color-bg-primary: #050505;
+    --color-bg-secondary: #0a0a0c;
+    --color-bg-card: #0e0e12;
+    --color-bg-card-hover: #14141a;
+    --color-surface: #181820;
+    --color-surface-hover: #1f1f2a;
+
+    --color-accent: #7c3aed;
+    --color-accent-light: #9d5cf7;
+    --color-accent-glow: rgba(124, 58, 237, 0.35);
+    --color-accent-2: #06b6d4;
+    --color-accent-2-glow: rgba(6, 182, 212, 0.25);
+
+    --color-text-primary: #f0f0f8;
+    --color-text-secondary: #9898b8;
+    --color-text-muted: #5a5a7a;
+
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-hover: rgba(124, 58, 237, 0.5);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+
+    --shadow-glow: 0 0 40px var(--color-accent-glow);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 8px 48px rgba(124, 58, 237, 0.2);
+
+    /* New Typography System Families */
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 17px; /* Increased base font size for better readability */
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    line-height: 1.75;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-light);
+  }
+}
+
+/* ===================================
+   UTILITY CLASSES
+   =================================== */
+@layer utilities {
+  /* Background utilities */
+  .bg-primary    { background-color: var(--color-bg-primary); }
+  .bg-secondary  { background-color: var(--color-bg-secondary); }
+  .bg-card       { background-color: var(--color-bg-card); }
+  .bg-surface    { background-color: var(--color-surface); }
+
+  /* Text utilities */
+  .text-primary   { color: var(--color-text-primary); }
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-muted     { color: var(--color-text-muted); }
+  .text-accent    { color: var(--color-accent-light); }
+
+  /* Border */
+  .border-default { border: 1px solid var(--color-border); }
+  .border-accent  { border-color: var(--color-accent); }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #9d5cf7 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-accent  { box-shadow: var(--color-accent-glow) 0 0 30px; }
+  .glow-text    { text-shadow: 0 0 20px var(--color-accent-glow); }
+
+  /* Glass card */
+  .glass {
+    background: rgba(30, 30, 48, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border);
+  }
+
+  .light .glass {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%        { transform: translateY(-18px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--color-accent-glow); }
+  50%       { box-shadow: 0 0 50px var(--color-accent-glow), 0 0 80px var(--color-accent-glow); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUpFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float      { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-spin-slow  { animation: spin-slow 20s linear infinite; }
+.animate-gradient   {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Ripple effect for buttons */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s, opacity 0.6s;
+  opacity: 0;
+}
+.btn-ripple:active::after {
+  width: 300px; height: 300px;
+  opacity: 0;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Mesh gradient hero */
+.mesh-gradient {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+    var(--color-bg-primary);
+}
+
+/* Skill bar animation */
+.skill-bar-fill {
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================================
+   TYPOGRAPHY SYSTEM CLASSES (Space Grotesk, Inter, Cormorant, JetBrains)
+   ============================================================ */
+
+/* Font Family Bindings */
+.font-display { font-family: var(--font-display) !important; }
+.font-sans    { font-family: var(--font-sans) !important; }
+.font-serif   { font-family: var(--font-serif) !important; }
+.font-mono    { font-family: var(--font-mono) !important; }
+
+/* Fluid Typography using CSS clamp() */
+.text-clamp-logo {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.text-clamp-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.text-clamp-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.text-clamp-stat {
+  font-family: var(--font-mono);
+  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Specific Role Typographies */
+.profile-name-serif {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.highlight-serif-italic {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.quote-text {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.section-label {
+  font-family: var(--font-mono) !important;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-accent-light);
+}
+
+.nav-item-font {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+}
+
+.btn-font {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.825rem;
+  letter-spacing: 0.06em;
+}
+
+.caption-font {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.paragraph-text {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* Custom transitions and hover states */
+.hover-underline-grow {
+  position: relative;
+}
+.hover-underline-grow::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-accent-light);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+.hover-underline-grow:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.text-shimmer {
+  background: linear-gradient(to right, #9d5cf7 20%, #06b6d4 40%, #06b6d4 60%, #9d5cf7 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}

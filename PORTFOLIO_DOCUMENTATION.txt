@@ -1,0 +1,59 @@
+=======================================================
+PORTFOLIO TRANSFORMATION OVERVIEW - ABHISHEK TIWARI
+=======================================================
+This document outlines the features, architectural choices, and stylistic upgrades applied to shift the portfolio from a standard student resume to a "Top 1% AI + IoT Research-Focused Personal Brand".
+
+--- 1. DESIGN & THEME ---
+• Cinematic Dark Theme: Shifted the core background palette to a true, deep black (#050505 to #101014) combined with soft, volumetric ambient lighting overlays (violet, cyan, and rose gradients). 
+• Typography: Driven by 'Inter' and 'Outfit' fonts. Applied a negative letter-spacing (-0.025em) to all H1-H4 headers for a sharper, premium hierarchy.
+• Custom UI Effects: Glassmorphism borders, absolute positioned glows, and a universal `slideUpFade` staggered entrance animation spanning the timeline.
+• Profile Image Integration: Profile picture sits cleanly in a rounded viewport with a subtle hover zoom, perfectly aligned with the cinematic theme.
+
+--- 2. HERO SECTION ---
+• Identity Rewrite: Upgraded the tagline to "Engineering systems at the intersection of AI, behaviour, and real-world data."
+• Video Background Layering: Integrated a seamless looping background video (`heaven_window.mp4`) with heavy ambient masking and opacity. 
+
+--- 3. ABOUT SECTION & NARRATIVE ---
+• Biography: Rewritten strictly to focus on a builder/researcher mentality. It highlights Brain-Computer Interfaces (BCI), decoding neural signals, and pursuing expert mentorship.
+• Timeline & Extracurriculars: Rebuilt the logic to focus entirely on actionable execution metrics: 
+  - SIH Co-Leadership.
+  - SB Jain Tech Leadership (Hitting Top 12 among 50+ teams).
+  - Kaagaz Open Mic community building.
+• Quick Stats: Adjusted dynamically to represent real-world scaling accurately (9.03 CGPA, Hackathon shortlists, Projects built).
+
+--- 4. PROJECTS (THE CASE STUDY UPGRADE) ---
+• Data Model Expansion: The raw `portfolioData.ts` was expanded extensively. Project cards no longer use simple descriptions. Instead, they dynamically unfold into robust case-studies:
+  - Problem
+  - What I'm Building (Solution)
+  - Key Features
+  - Validation (Metric-based)
+  - Focus Areas
+  - Outcome / Vision
+• Featured Projects Included:
+  1. Acurove – AI Fitness & Behaviour System (Features custom "ONGOING" bright glowing badge).
+  2. HabitGrid – Offline-First Behavioral PWA (React, IndexedDB).
+  3. QuizCraft – MCQ Generator (NLP logic).
+  4. Obstacle Avoidance Bot (Arduino/Hardware integration).
+  5. Smart Classroom Environment Detector.
+
+--- 5. RESEARCH & PUBLICATIONS (NEW SECTION) ---
+• Architecture: Engineered a deeply clinical UI component `Research.tsx` specifically mapping academic outputs.
+• Items Added:
+  - Book Chapter: Advanced Classroom Environment Detection Using Sensor Systems.
+  - Independent Project: Researching Brain-Computer Interface (BCI) Systems.
+
+--- 6. CREATIVE LAB UPGRADES ---
+• Render Assimilation: Extracted 13 total individual Blender render files (.mov, .mkv, .mp4) natively into `portfolioData`.
+• Pagination Logic: Engineered a state-driven lazy loading system ensuring the browser DOM only handles 6 videos concurrently, protecting CPU and RAM overhead.
+• Embedded a responsive "View More Visuals" trigger button. 
+• "Watch Render": Overhauled interactive buttons to natively open heavy .mkv/.mov files safely rather than risking an inline browser crash.
+
+--- 7. SKILLS SECTION ---
+• Mapped your technical proficiency horizontally into a rigid 4-point structure (`lg:grid-cols-4`):
+  1. Languages
+  2. Frameworks
+  3. Tools
+  4. Concepts (ML, REST APIs, DSA).
+
+--- 8. CALL TO ACTION ---
+• Stripped the standard "Hello/Contact message" for a collaborative prompt: "Let's build something meaningful. Open to research, collaborations, and impactful projects."
