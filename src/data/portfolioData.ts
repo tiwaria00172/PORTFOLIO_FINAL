@@ -6,7 +6,7 @@ export const personalInfo = {
   name: 'Abhishek Tiwari',
   title: 'AI/ML Developer & Software Engineer',
   tagline: 'I build practical AI/ML applications and data-driven software using Python, SQL, and modern development tools. Currently focused on machine learning, intelligent systems, and solving real-world problems through technology.',
-  email: 'abhishektiwari@gmail.com',
+  email: 'abhishektiwari00172@gmail.com',
   location: 'Nagpur, Maharashtra, India',
   availability: 'Seeking AI/ML, Data/SQL & Software Engineering Internships',
   // 🔗 Update these with your real URLs
@@ -44,12 +44,38 @@ export const projects: Project[] = [
     proof: 'End-to-end pipeline handles real-world conditions including varied lighting, partial occlusion, and angled faces. Deployed with a Flask backend and React frontend for live classroom use.',
     tech: ['Python', 'OpenCV', 'InsightFace', 'ONNX Runtime', 'Flask', 'React'],
     category: 'AI & Machine Learning',
-    liveUrl: 'https://fr-attendance.streamlit.app/',
+    liveUrl: 'ai-research-agent-4a7smh4s7kysewxycaykhy.streamlit.app',
     githubUrl: 'https://github.com/tiwaria00172',
     featured: true,
     status: 'Complete',
     color: 'from-violet-600 to-purple-600',
   },
+
+   {
+  id: 90,
+
+  title: 'AI Research & Intelligence Agent',
+
+  description: 'Built an AI-powered research agent that performs web research, uses tool calling to gather relevant information, and generates synthesized answers with source-based context through a Streamlit interface.',
+
+  whatItDoes: 'Accepts a research question, creates a research plan, searches the web using DuckDuckGo, reads relevant webpages, retrieves information using RAG, and synthesizes the collected information into a structured answer with source context.',
+
+  proof: 'Supports multiple AI providers including Gemini, Groq, OpenAI, and OpenAI-compatible APIs. Implements web search, webpage extraction, RAG using FAISS and Sentence Transformers, and PDF document processing.',
+
+  tech: ['Python', 'Gemini', 'Groq', 'OpenAI', 'RAG', 'FAISS', 'Sentence Transformers', 'DuckDuckGo', 'Streamlit'],
+
+  category: 'AI & Machine Learning',
+
+  liveUrl: 'https://ai-research-agent-4a7smh4s7kysewxycaykhy.streamlit.app/',
+
+  githubUrl: 'https://github.com/tiwaria00172',
+
+  featured: true,
+
+  status: 'Complete',
+
+  color: 'from-blue-600 to-cyan-600',
+},
   {
     id: 16,
     title: 'Acurove AI Fit',

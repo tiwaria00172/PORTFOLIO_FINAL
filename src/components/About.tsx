@@ -20,7 +20,6 @@ export default function About({ mode = 'all' }: Props) {
     { text: 'Built an AI-powered face recognition attendance system using Python, OpenCV, InsightFace, and ONNX Runtime', categories: ['technical', 'all'] },
     { text: 'Solved 200+ problems on LeetCode using Java, Python, and SQL', categories: ['technical', 'all'] },
     { text: 'Developed 5+ projects spanning AI/ML, web development, and IoT', categories: ['technical', 'all'] },
-    { text: 'Ranked among the Top 20% (75/374 valid submissions) in the Fugacity 2026 ML Hackathon, organized by ChEA, IIT Kharagpur', categories: ['technical', 'all'] },
     { text: 'Created Blender-based 3D visuals and creative renders', categories: ['creative', 'all'] },
     { text: 'Cleared Internal Round of Smart India Hackathon (SIH)', categories: ['technical', 'all'] },
     { text: 'Serving as an Organizing Member at Kaagaz (an open mic community), having successfully organized a total of 8 events', categories: ['creative', 'all'] },
@@ -43,13 +42,6 @@ export default function About({ mode = 'all' }: Props) {
   const stats = [
     { val: '9.3', label: 'CGPA', categories: ['technical', 'all', 'creative'] },
     { val: '200+', label: 'LeetCode Problems', categories: ['technical', 'all'] },
-    { 
-      val: '🏆 Top 20%', 
-      label: '75 / 374 Valid Submissions', 
-      desc: 'Fugacity 2026 ML Hackathon',
-      footer: 'Organized by ChEA, IIT Kharagpur',
-      categories: ['technical', 'all'] 
-    },
     { val: '5+', label: 'Projects', categories: ['technical', 'all'] },
     { val: '13', label: 'Blender Renders', categories: ['creative', 'all'] },
     { val: '8', label: 'Kaagaz Events Hosted', categories: ['creative'] },
